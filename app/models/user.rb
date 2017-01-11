@@ -1,5 +1,5 @@
 class User <ActiveRecord::Base
-has_many :articles
+has_many :articles, dependent: :destroy 
 before_save{self.email=email.downcase}
 validates :username, presence: true,format: { without: /\s/, message: "must contain no spaces" }, 
 uniqueness: {case_sensitive:false}, 
